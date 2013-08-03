@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html manifest="manifest/index.appcache">
+<head>
+    <title>Jungreithmayr</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="verify-v1" content="JRdk+LzgIf6sfzmQBDaahDdCB9E/9lHvPy5zSzgs5Rw=" />
+    <meta name="google-site-verification" content="VXUq4fLqSe4RKaebbDKt-OY5cAIq7dps7eHzszDZ2kg" />
+
+    <meta name="audience" content="all">
+    <meta name="author" content="roland'at 'thening.at">
+    <meta name="description" content="Tischler in Thening, Planen Einrichten mit Gefühl, Jungreithmayr: Gestalten Planen Darstellen Fertigen Liefern Aufstellen Thening Linz Oberösterreich Individuell Perfekt Wohlfühlen Möbel Innenausbau">
+    <meta name="keywords" content="Tischler, Thening, Exklusiv, Einrichtung, Gefühl, Jungreithmayr, Planung, Möbel, Türen, Fenster, Liefern, Aufstellen, Montage, Gestaltung, Einzelfertigung, Qualität, Handfertigung, Österreich, Betten, Gartenmöbel, Holz, Beratung, Parkett, Korkboden, Holzböden, Dielen, Altholz, Stil, Design, Massiv, Küche Bad, Wohnzimmer, Kinderzimmer, Diele, Vorraum, Türen, Fenster, Gartenmöbel, Niro, Nirosta, Ei ">
+    <meta name="language" content="de">
+    <meta name="publisher" content="Roland Jungreithmayr">
+    <meta name="Copyright" content="Tischlerei Jungreithmayr">
+    <meta name="page-topic" content="Tischler">
+    <meta name="ROBOTS" content="INDEX, FOLLOW">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="DC.Creator" content="Roland Jungreithmayr">
+    <meta name="DC.Language" content="DE, AT, CH, IT">
+    <meta name="expires" content="0">
+    <meta name="page-type" content="Tischler">
+    <meta name="audience" content="All">
+    <meta name="revisit-after" content="10 weeks">
+
+    <script type="text/javascript" src="scripts/lib/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="styles/lib/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/antiscroll.css">
+    <link rel="stylesheet" type="text/css" href="styles/app/styles.css">
+</head>
+<body>
+  <div id="status" style="position: absolute; bottom: 10px; left: 10px; opacity:.5;">
+    <span></span>
+    <progress class="offline" value="10" max="100" style="display:none;"></progress>
+  </div>
+
+    <div id="content">
+        <div class="item left">
+            <a href="/">
+                <img id="logo"
+                    src="images/logo.jpg"
+                    alt="Tischlerei + Architektur Jungreithmayr (seit 1890)" />
+            </a>
+
+            <div data-bind="template: leftTemplate(),
+							attr: { id: leftTemplate() }">
+            </div>
+
+            <ul id="mainmenu" data-bind="template: { name: 'mainmenuTemplate', foreach: sitemap }"></ul>
+
+            <ul id="sub-menu"
+                data-bind="	template: {
+							name: 'submenuTemplate',
+							foreach: submenu
+						},
+						attr: { role: viewModel.activeMainMenuId() }">
+            </ul>
+
+            <img id="slogan"
+                src="images/slogan.jpg"
+                alt="Tischler Z' Thening" />
+        </div>
+
+        <div class="item right"
+            data-bind="template: rightTemplate(),
+						attr: { id: rightTemplate() }">
+        </div>
+
+        <div style="clear: both;" />
+    </div>
+
+
+    <!-- 	L E F T   T E M P L A T E S 
+	 		=========================== -->
+    <script id="mainmenuTemplate" type="text/jquerytemplate">
+		<li data-bind="css:{ active: viewModel.activeMainMenuId() == id }" class="${id}">
+			<a href="" data-bind="html:name||id,
+								  click:function() { viewModel.onMainMenuSelect(id); }" />
+		</li>
+	</script>
+
+    <script id="submenuTemplate" type="text/jquerytemplate">
+		<li data-bind="css:{ active: viewModel.selectedSubMenuId() == id }" class="${id}">
+			<a data-bind="html:name||id,
+						  attr:{href: '#' + viewModel.activeMainMenuId() + '/' + id}" />
+		</li>
+	</script>
+
+    <!-- 	L E F T   C O N T E N T   T E M P L A T E S 
+	 		=========================================== -->
+    <script id="__leftContentTemplate" type="text/jquerytemplate">
+	</script>
+
+    <script id="team_werkstatt_leftContentTemplate" type="text/jquerytemplate">
+		<img src="pictures/werkstatt_left.jpg" alt="Werkstatt" />
+	</script>
+
+    <script id="team_buero_leftContentTemplate" type="text/jquerytemplate">
+		<img src="images/buero_left.jpg" alt="Werkstatt" />
+	</script>
+
+    <script id="geschichte__leftContentTemplate" type="text/jquerytemplate">
+		<ol>
+			<li>
+				<span class="generation">Generation 1 : </span>
+				<span class="name">Johann Angermayr </span>
+				<span class="attr">(Gr&uuml;nder im Jahr 1890)</span>
+			</li>
+			<li>
+				<span class="generation">Generation 2 : </span>
+				<span class="name">Adam Jungreithmayr </span>
+				<span class="attr">(Schwiegersohn)</span>
+			</li>
+			<li>
+				<span class="generation">Generation 3 : </span>
+				<span class="name">Walter Jungreithmayr </span>
+				<span class="attr">(Sohn)</span>
+			</li>
+			<li>
+        <span class="generation"><em>Generation 4 :</em> </span>
+				<span class="name">Wilfried Jungreithmayr </span>
+				<span class="attr">(Sohn)</span>
+			</li>
+			<li>
+        <span class="generation"><em>Generation 5 :</em> </span>
+				<span class="name">Roland und Joachim Jungreithmayr </span>
+				<span class="attr">(S&ouml;hne)</span>
+			</li>
+			<li>
+				<span>...</span>
+			</li>
+			<li>
+				<span>...</span>
+			</li>
+	</script>
+
+
+    <!-- 	R I G H T   T E M P L A T E S 
+	 		============================= -->
+    <script id="__rightTemplate" type="text/jquerytemplate"></script>
+
+    <script id="home__rightTemplate" type="text/jquerytemplate">
+		<div data-bind="flexslider:pictureUrlsForTag('#Allgemein/Home')">
+	 	</div>		
+	</script>
+
+    <script id="galerie_bad_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Bad')"></div>		
+	</script>
+    <!-- /ko -->
+    <script id="galerie_wohnen_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Wohnen')"></div>		
+	</script>
+    <script id="galerie_schlafen_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Schlafen')"></div>		
+	</script>
+    <script id="galerie_aufkochen_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Aufkochen')"></div>		
+	</script>
+    <script id="galerie_frischluft_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Frischluft')"></div>		
+	</script>
+    <script id="galerie_arbeiten_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Arbeiten')"></div>		
+	</script>
+    <script id="galerie_stiegen_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Stiegen')"></div>		
+	</script>
+    <script id="galerie_tuer_rightTemplate" type="text/jquerytemplate">
+		<div class="gallery" data-bind="gallery: picturesForTag('#Galerie/Tuer')"></div>		
+	</script>
+
+    <script id="image_galerie_Template" type="text/jquerytemplate">
+	 	<li><img class="picture" data-bind="attr:{src: url}" alt="" ></img></li>
+	</script>
+    <script id="image_slider_Template" type="text/jquerytemplate">
+	 	<li><img class="picture" src="${$data}" alt="" ></img></li>
+	</script>
+
+    <script id="team_buero_rightTemplate" type="text/jquerytemplate">
+		<div class="wrapper">
+			<h3>Wilfried Jungreithmayr, Eigent&uuml;mer</h3>
+			<p>Gestaltung Planung Design M&ouml;bel Einrichtung Beratung</p>
+
+			<h3>Roswitha Jungreithmayr</h3>
+			<p>Sekretariat Buchhaltung Empfang</p>
+
+			<h3>Roland Jungreithmayr</h3>
+			<p>Einkauf Planung Technik Hi-Fi Beratung</p>
+
+			<h3>DI Joachim Jungreithmayr</h3>
+			<p>Architektur Gestaltung Planung Design M&oumlbel Einrichtung Beratung</p>
+		</div>
+	</script>
+
+    <script id="team_werkstatt_rightTemplate" type="text/jquerytemplate">
+		<div data-bind="flexslider:pictureUrlsForTag('#Team/Werkstatt')" 
+			 style="height: 345px;">
+	 	</div>		
+		<p>Unser Team besteht aus hervorragend und ausschlie&szlig;lich in unserem Betrieb ausgebildeten Tischlermeister und Gesellen mit Lehrlingen von denen jeder ein aktuelles M&ouml;belst&uuml;ck von der CAD-Ausarbeitung bis zu passgenauen Montage fertigt.</p>
+	</script>
+
+    <script id="leistungen_tischlerei_rightTemplate" type="text/jquerytemplate">
+  		<div class="wrapper">
+	  		<h3>Zuh&ouml;ren</h3>
+	    	<p>W&uuml;nsche, Tr&auml;ume und Vorstellungen erfahren.</p>
+	    	<h3>Planen und Entwerfen</h3>
+	    	<p>mit Leib, Seele und Liebe zum Detail.</p>
+	    	<h3>Darstellen</h3>
+	    	<p>vom Grundrissplan bis zur fotorealistischen 3d-visualisierten Darstellung.</p>
+	    	<h3>Herstellen</h3>
+	    	<p>mit generations&uuml;bergreifender Erfahrung, modernsten Herstellungsverfahren und handwerklichem Geschick.</p>
+	    	<h3>Koordinieren</h3>
+	    	<p>von allen n&ouml;tigen Gewerken wie Schlosser, Glaserer, Elektriker, Fliesenleger, Maler, Baumeister, K&uuml;nstler und vielen mehr.</p>
+	    	<h3>Liefern und einbauen</h3>
+	    	<p>ma&szlig;genau, freundlich, sauber und abgestimmt mit anderen Professionisten.</p>	
+    	</div>
+    </script>
+
+    <script id="leistungen_architektur_rightTemplate" type="text/jquerytemplate">
+		<h3>Architektur DI Joachim Jungreithmayr</h3>
+		<img id="bigJ" src="pictures/J.png" alt="Architektur" />
+		<img id="architektur_linie" src="pictures/architektur_linie.png" alt="Architektur" />
+		<p>
+			Gef&uuml;hlvoll, harmonisch, einzigartig, nart&uuml;rlich, menschlich! 
+			Vom Erstgespr&auml;ch bis zum fertigen Entwurf. Mit viel Herzblut! 
+			Gesamtplanung. Architektur vom Geb&auml;ude bis zum Wohnzimmertisch!
+		</p>
+	</script>
+
+    <script id="leistungen_hi-fi_rightTemplate" type="text/jquerytemplate">
+		<a href="http://www.hifi.thening.at" target="_blank">
+			<img src="pictures/hi-fi.jpg" alt="Hi-Fi" />
+		</a>
+	</script>
+
+    <script id="kontakt_adresse_rightTemplate" type="text/jquerytemplate">
+		<div class="wrapper">
+			<h3>Tischlerei Jungreithmayr</h3>
+		    <p>
+		      Tischlerstrasse 6<br />
+		      A&nbsp;-&nbsp;4062 Kirchberg-Thening
+		    </p>
+		    <ul class="numbers">
+		      <li><span class="type">Tel.:</span><span>0043 7221 63 0 16</span></li>
+		      <li><span class="type">Fax.:</span><span>0043 7221 63 0 61</span></li>
+		    </ul>
+        <span class="email">tischler@thening.at</span>
+	    </div>
+	</script>
+
+    <script id="kontakt_anfahrtsplan_rightTemplate" type="text/jquerytemplate">
+	    <div data-bind="googlemap: true"></div>
+	</script>
+
+    <script id="geschichte__rightTemplate" type="text/jquerytemplate">
+		<div data-bind="flexslider:pictureUrlsForTag('#Allgemein/Geschichte')"></div>		
+	</script>
+
+    <script type="text/javascript" src="scripts/lib/jquery.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery-easing.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery-mousewheel.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery.scrollIntoView.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/knockout.js"></script>
+    <script type="text/javascript" src="scripts/lib/sammy.js"></script>
+    <script type="text/javascript" src="scripts/lib/underscore.js"></script>
+    <script type="text/javascript" src="scripts/lib/binders/custom.js"></script>
+    <script type="text/javascript" src="scripts/lib/PxLoader.js"></script>
+    <script type="text/javascript" src="scripts/lib/PxLoaderImage.js"></script>
+    <script type="text/javascript" src="scripts/app/controller.js"></script>
+    <script type="text/javascript" src="scripts/data/uploads.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+    	/**
+		 * Liefert die Bilder für den angegebenen Tag.
+		 */
+    	function picturesForTag(/**string*/tag) {
+    		return _.chain(uploads)
+					.filter(function (u) { return u.tag == tag; })
+					.sortBy(function (u) { return u.pos; })
+					.value();
+    	}
+
+    	/**
+		 * Liefert die Bilder-Urls für den angegebenen Tag.
+		 */
+    	function pictureUrlsForTag(/**string*/tag) {
+          return _(picturesForTag(tag)).pluck('url');
+    	}
+
+    	function updateCacheStatus(msg) {
+          $('#status > span').html(msg);
+    	}
+        var progressBar = $('progress.offline');
+
+    	window.applicationCache.onchecking = function (e) {
+    		updateCacheStatus('Checking for a new version of the application.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.ondownloading = function (e) {
+    		updateCacheStatus('Downloading a new offline version of the application');
+            progressBar.hide();
+    	};
+    	window.applicationCache.oncached = function (e) {
+    		updateCacheStatus('The application is available offline.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.onerror = function (e) {
+    		updateCacheStatus('Something went wrong while updating the offline version of the application. It will not be available offline.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.onupdateready = function (e) {
+    		window.applicationCache.swapCache();
+    		updateCacheStatus('The application was updated. Refresh for the changes to take place.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.onnoupdate = function (e) {
+    		updateCacheStatus('The application is also available offline.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.onobsolete = function (e) {
+    		updateCacheStatus('The application can not be updated, no manifest file was found.');
+            progressBar.hide();
+    	};
+    	window.applicationCache.onprogress = function (e) {
+    		var message = 'Downloading offline resources.. ';
+            progressBar.show();
+
+    		if (e.lengthComputable) {
+                progressBar.attr('max', e.total);
+                progressBar.val(e.loaded);
+    			updateCacheStatus(message + Math.round(e.loaded / e.total * 100) + '%');
+    		} else {
+    			updateCacheStatus(message);
+    		};
+    	};
+
+
+	</script>
+    <!-- Asynchronous Google Analytics snippet. -->
+    <script>
+    	var _gaq = [['_setAccount', 'UA-31282220-1'], ['_trackPageview']];
+    	(function (d, t) {
+    		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    		g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    		s.parentNode.insertBefore(g, s)
+    	}(document, 'script'));
+  </script>
+</body>
+</html>
+

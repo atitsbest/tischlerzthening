@@ -1,0 +1,370 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*******************************
+ * Styles
+ */
+body {
+	margin: 0;
+	padding: 0;
+	background: #e0e0e0 url('../../images/bg.jpg') fixed;
+	font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+	font-size: 13px;
+	line-height: 1.4em;
+	color: #333;
+}
+
+a { color: #333; text-decoration: none; border: none; }
+a:active { color: #964800; }
+a:visited { color: #333; }
+
+#content {
+	width: 100%;
+	max-width: 944px;
+	min-width: 462px;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	zoom: 1;
+	position: relative;
+}
+
+.item {
+	background-color: #fff;
+	/*width: 45.5%;
+	height: 80%;*/
+	width: 462px;
+	height: 462px;
+	float: none; 
+	display: block; 
+	margin: 0 auto;
+	padding: 0;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.2), -2px -2px 5px rgba(0,0,0,0.2);
+	position: relative;
+}
+
+.item.left { margin-bottom: 20px; }
+
+
+@media screen and (min-width: 1024px) {
+	.item { margin: 0; float: left; }
+	.item.left { margin-bottom: 0px; margin-right: 20px; }
+}
+@media (max-device-width: 1024px) and (orientation: landscape) {
+	.item { margin: 0; float: left; }
+	.item.left { margin-bottom: 0px; margin-right: 20px; }
+}
+
+
+
+#logo { width: 100%; display: block;}
+#slogan { 
+	width: 100%; 
+	display: block; 
+	position: absolute;
+	bottom: 0px;
+}
+
+#mainmenu {
+	margin: 4% 4% 0%;
+	padding: 0;
+	width: 92%;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+#mainmenu > li {
+	list-style-type: none;
+	display: inline-block;
+}
+#mainmenu > li.home 		{ width: 12%; text-align: left; }
+#mainmenu > li.galerie 	{ width: 14%; }
+#mainmenu > li.team 		{ width: 14%; }
+#mainmenu > li.leistungen 	{ width: 20%; }
+#mainmenu > li.kontakt 	{ width: 19%; }
+#mainmenu > li.geschichte 	{ width: 20%; text-align: right; }
+#mainmenu > li > a {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 13px;
+	width: 100%;
+}
+#mainmenu > li.active > a {
+	color: #984801;
+}
+
+#sub-menu {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 25%;
+}
+#sub-menu > li {
+	list-style-type: none;
+	display: block;
+	text-align: center;
+	margin: .85em 0;
+}
+#sub-menu > li:hover > a {
+	text-decoration: underline;
+}
+#sub-menu > li > a {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+#sub-menu > li.active > a {
+	color: #984801;
+}
+#sub-menu[role="galerie"]     { margin-left: 10%; }
+#sub-menu[role="team"]        { margin-left: 22.6%; }
+#sub-menu[role="leistungen"]  { margin-left: 37.7%;}
+#sub-menu[role="kontakt"]     { margin-left: 55.5%;}
+
+.gallery {
+	width: 437px;
+	height: 412px;
+	margin: 25px 0 0 25px;
+	padding: 0;
+	overflow: hidden;
+}
+.gallery ul {
+	margin: 0px;
+	padding: 0px;
+}
+.gallery ul > li {
+	float: left;
+	margin: 0 25px 25px 0;
+}
+.gallery  ul > li > img {
+	width: 120px;
+}
+
+.gallery > .nav {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  left: 205px;
+  opacity: .5;
+  cursor: pointer;
+  -webkit-transition: opacity .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+	-ms-transition: opacity .2s ease-in-out;	
+	transition: opacity .2s ease-in-out;
+}
+.gallery > .nav-up {
+  background: url(../lib/theme/bg_direction_nav_hor.png);
+  top: -6px;
+}
+.gallery > .nav-down {
+  background: url(../lib/theme/bg_direction_nav_hor.png) 0 52px;
+  top: 416px;
+}
+.gallery > .nav:hover { opacity: .8; }
+
+
+.flexslider {
+	/*border: none;*/
+	width: 454px;
+}
+
+.flex-direction-nav a.next {
+  right: -6px;
+}
+.flex-direction-nav a.prev {
+  left: -6px;
+}
+
+/* 	R I G H T   T E M P L A T E S 
+	============================= */
+#team_werkstatt_rightTemplate > p {
+	padding: 0 20px 20px;
+	text-align: justify;
+}
+#team_buero_rightTemplate > .wrapper {
+	padding: 155px 20px 0px;
+}
+#team_buero_rightTemplate > .wrapper > h3 {
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 1em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+#team_buero_rightTemplate > .wrapper > p {
+	text-align: left;
+	color: #888;
+	line-height: 2em;
+	padding: 0;
+	margin: 0 0 4.8%;
+}
+
+
+#leistungen_architektur_rightTemplate > h3 {
+	margin-top: 153px;
+	margin-left: 20px;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 1em;
+	text-transform: uppercase;
+	float: left;
+}
+#leistungen_architektur_rightTemplate > img#bigJ {
+	margin-top: 115px;
+	float: right;
+	margin-right: 20px;
+}
+#leistungen_architektur_rightTemplate > p {
+	padding: 9px 20px 20px;
+	text-align: justify;
+	line-height: 2em;
+	color: #888;
+}
+
+#leistungen_tischlerei_rightTemplate > .wrapper {
+	padding: 155px 20px 0px;
+}
+#leistungen_tischlerei_rightTemplate > .wrapper > h3 {
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 1em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+#leistungen_tischlerei_rightTemplate > .wrapper > p {
+	text-align: left;
+	color: #888;
+	line-height: 1em;
+	padding: 0;
+	margin: 0 0 4.5%;
+}
+
+#kontakt_adresse_rightTemplate > .wrapper {
+	padding: 155px 20px 0px;	
+}
+#kontakt_adresse_rightTemplate > .wrapper > h3 {
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 1em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+#kontakt_adresse_rightTemplate > .wrapper > p {
+	text-align: left;
+	line-height: 1.5em;
+	color: #888;
+}
+#kontakt_adresse_rightTemplate > .wrapper > ul.numbers {
+	margin: 0;
+	padding: 0 0 1em 0;
+}
+#kontakt_adresse_rightTemplate > .wrapper > ul.numbers > li {
+	list-style-type: none;
+}
+#kontakt_adresse_rightTemplate > .wrapper > ul.numbers > li > span.type {
+	color: #333;
+	text-transform: uppercase;
+	margin-right: 1.2em;
+}
+#kontakt_adresse_rightTemplate > .wrapper > span { color: #964800; }
+#kontakt_adresse_rightTemplate > .wrapper > span > em { 
+  font-style: italic;
+  color: #888;
+}
+
+
+/* 	L E F T   C O N T E T   T E M P L A T E S 
+	========================================= */
+#team_werkstatt_leftContentTemplate > img,
+#team_buero_leftContentTemplate > img {
+	position: absolute;
+	bottom: 100px;
+}
+
+#geschichte__leftContentTemplate ol { 
+	padding: 0 0 0 62px; 
+	margin: 0;
+	position: absolute; 
+	bottom: 95px;
+}
+#geschichte__leftContentTemplate li { 
+	list-style-type: none; 
+	margin: .1em 0;
+}
+#geschichte__leftContentTemplate span { color: #888; }
+#geschichte__leftContentTemplate span em { color: #984801; }
+#geschichte__leftContentTemplate span.name { color: #333; }
+
+
+/* 	P R O G R E S S   B A R 
+	========================================= */
+progress {
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: transprarent;
+  padding: 2px;
+  transition: all 0.1s;
+  
+}
+progress::-webkit-progress-bar {  
+   background: transparent;
+}  
+progress::-webkit-progress-value {  
+  background: #999;
+  border-radius: 5px;
+  transition: all 1.4s;
+  transition-timing-function: ease-in-out;
+}  
+progress::-moz-progress-bar {  
+  background: transparent;
+}  
+
