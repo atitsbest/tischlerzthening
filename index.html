@@ -1,5 +1,11 @@
 <!DOCTYPE HTML>
-<html manifest="manifest/index.appcache">
+<html 
+  <!-- build:template 
+    <% if (environment == "offline") { %>
+      manifest="manifest/index.appcache"
+    <% } %>
+  /build -->
+  >
 <head>
     <title>Jungreithmayr</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

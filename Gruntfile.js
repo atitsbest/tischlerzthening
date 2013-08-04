@@ -21,9 +21,34 @@ module.exports = function(grunt) {
       build: {
         files: [
           { expand: true, src: 'index.html', dest: 'build/'},
+          // { expand: false, src: 'index.html', dest: 'build/offline.html'},
+          { expand: true, src: 'favicon.ico', dest: 'build/'},
           { expand: true, src: 'images/*', dest: 'build/'},
-          { expand: true, src: 'pictures/*', dest: 'build/'}
+          { expand: true, src: 'pictures/*', dest: 'build/'},
+          { expand: true, src: 'apple-touch*', dest: 'build/'}
         ]
+      }
+    },
+
+    htmlmin: {
+      build: {
+        files: { 
+          'build/index.html' : 'build/index.html',
+          'build/offline.html' : 'build/offline.html'
+        }
+      }
+    },
+
+    processhtml: {
+      offline: {
+        files: {
+          'build/offline.html': ['build/index.html']
+        }
+      },
+      build: {
+        files: {
+          'build/index.html': ['build/index.html']
+        }
       }
     },
 
@@ -35,8 +60,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-processhtml');
 
   grunt.registerTask('build', [
     'clean',
@@ -45,6 +72,8 @@ module.exports = function(grunt) {
     'cssmin',
     'concat',
     'uglify',
-    'usemin'
+    'usemin',
+    'processhtml',
+    'htmlmin'
   ]);
 };
