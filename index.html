@@ -31,9 +31,11 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
+    <!-- build:css styles/styles.css -->
     <link rel="stylesheet" type="text/css" href="styles/lib/flexslider.css">
     <link rel="stylesheet" type="text/css" href="styles/lib/antiscroll.css">
     <link rel="stylesheet" type="text/css" href="styles/app/styles.css">
+    <!-- endbuild -->
 </head>
 <body>
   <div id="status" style="position: absolute; bottom: 10px; left: 10px; opacity:.5;">
@@ -264,6 +266,7 @@
 		<div data-bind="flexslider:pictureUrlsForTag('#Allgemein/Geschichte')"></div>		
 	</script>
 
+    <!-- build:js scripts/lib.js -->
     <script type="text/javascript" src="scripts/lib/jquery.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.tmpl.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.flexslider.js"></script>
@@ -276,7 +279,12 @@
     <script type="text/javascript" src="scripts/lib/binders/custom.js"></script>
     <script type="text/javascript" src="scripts/lib/PxLoader.js"></script>
     <script type="text/javascript" src="scripts/lib/PxLoaderImage.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/app.js -->
     <script type="text/javascript" src="scripts/app/controller.js"></script>
+    <!-- endbuild -->
+
     <script type="text/javascript" src="scripts/data/uploads.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
