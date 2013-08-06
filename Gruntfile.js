@@ -52,7 +52,20 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['build/']
+    clean: ['build/'],
+
+    'ftp-deploy': {
+      staging: {
+        auth: {
+          host: 'www.thening.at',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'build',
+        dest: '/tischler/beta',
+        exclusions: []
+      }
+    }
   });
 
 
@@ -64,6 +77,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-processhtml');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
 
   grunt.registerTask('build', [
     'clean',
@@ -76,4 +90,6 @@ module.exports = function(grunt) {
     'processhtml',
     'htmlmin'
   ]);
+
+  grunt.registerTask('deploy:staging', ['ftp-deploy:staging']);
 };
