@@ -23,8 +23,8 @@ module.exports = function(grunt) {
           { expand: true, src: 'index.html', dest: 'build/'},
           // { expand: false, src: 'index.html', dest: 'build/offline.html'},
           { expand: true, src: 'favicon.ico', dest: 'build/'},
-          { expand: true, src: 'images/*', dest: 'build/'},
-          { expand: true, src: 'pictures/*', dest: 'build/'},
+          { expand: true, src: 'images/*.gif', dest: 'build/'},
+          // { expand: true, src: 'pictures/*', dest: 'build/'},
           { expand: true, src: 'apple-touch*', dest: 'build/'}
         ]
       }
@@ -52,6 +52,26 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {                          
+      build: {                            
+        options: {                       
+          optimizationLevel: 7,
+          progressive: true
+        },
+        files: [
+          { expand: true, src: 'images/*', dest: 'build/'},
+          { expand: true, src: 'pictures/*', dest: 'build/'},
+          {
+            expand: true,
+            cwd: 'styles/lib/',
+            src: ['**/*.png'],
+            dest: 'build/styles/',
+            ext: '.png'
+          }
+        ]
+      }
+    },
+
     clean: ['build/'],
 
     'ftp-deploy': {
@@ -63,6 +83,16 @@ module.exports = function(grunt) {
         },
         src: 'build',
         dest: '/tischler/beta',
+        exclusions: []
+      },
+      productive: {
+        auth: {
+          host: 'www.thening.at',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'build',
+        dest: '/tischler',
         exclusions: []
       }
     }
@@ -76,6 +106,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-ftp-deploy');
 
@@ -87,9 +118,12 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'usemin',
+    'imagemin',
     'processhtml',
     'htmlmin'
   ]);
 
   grunt.registerTask('deploy:staging', ['ftp-deploy:staging']);
+
+  grunt.registerTask('deploy:live', ['ftp-deploy:productive']);
 };
