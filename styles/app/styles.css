@@ -199,11 +199,11 @@ a:visited { color: #333; }
 	transition: opacity .2s ease-in-out;
 }
 .gallery > .nav-up {
-  background: url(../lib/theme/bg_direction_nav_hor.png);
+  background: url(theme/bg_direction_nav_hor.png);
   top: -6px;
 }
 .gallery > .nav-down {
-  background: url(../lib/theme/bg_direction_nav_hor.png) 0 52px;
+  background: url(theme/bg_direction_nav_hor.png) 0 52px;
   top: 416px;
 }
 .gallery > .nav:hover { opacity: .8; }

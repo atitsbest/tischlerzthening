@@ -13,7 +13,8 @@ module.exports = function(grunt) {
       html: ['build/index.html'],
       css: ['styles/*.css', 'styles/**/.*css'],
       options: {
-        dirs: ['build']
+        dirs: ['build'],
+        basedir: ['build']
       }
     },
 
