@@ -106,8 +106,12 @@ ko.bindingHandlers.gallery = {
                       $clone.remove();
                       $('.flex-control-nav, .flex-direction-nav').fadeOut('fast', function() { $(this).remove(); });
                       $element.show();
+                      // Base-Url aus dem Pfadnamen entfernen. Dazu verwenden wir einen <a> als Parser (p).
+                      var p = document.createElement('a');
+                      p.href = this.src;
+                      var src = p.pathname.substring(1);
                       // Das zuletzt angezeigte Bild in der Gallerie anzeigen.
-                      $('img[src="' + this.src + '"]').scrollIntoView({ duration: 1000 });
+                      $('img[src="'+src+'"]').scrollIntoView({ duration: 1000 });
                     })
                     .end()
                   .end()
