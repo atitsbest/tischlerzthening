@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       css: ['styles/*.css', 'styles/**/.*css'],
       options: {
         dirs: ['build'],
-        basedir: ['build']
+        basedir: 'build'
       }
     },
 
