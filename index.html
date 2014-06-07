@@ -10,7 +10,7 @@
     <title>Jungreithmayr</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device&#45;width, initial&#45;scale=1.0, maximum&#45;scale=1.0, user&#45;scalable=no" /> -->
 
     <meta name="verify-v1" content="JRdk+LzgIf6sfzmQBDaahDdCB9E/9lHvPy5zSzgs5Rw=" />
     <meta name="google-site-verification" content="VXUq4fLqSe4RKaebbDKt-OY5cAIq7dps7eHzszDZ2kg" />
@@ -294,7 +294,7 @@
     <script type="text/javascript" src="scripts/data/uploads.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
-    	/**
+    /**
 		 * Liefert die Bilder für den angegebenen Tag.
 		 */
     	function picturesForTag(/**string*/tag) {
@@ -314,7 +314,8 @@
     	function updateCacheStatus(msg) {
           $('#status > span').html(msg);
     	}
-        var progressBar = $('progress.offline');
+
+      var progressBar = $('progress.offline');
 
     	window.applicationCache.onchecking = function (e) {
     		updateCacheStatus('Checking for a new version of the application.');
@@ -358,6 +359,34 @@
     		};
     	};
 
+
+      // Uploads.js periodisch nachladen, bzw. überprüfen, ob sich upload.js
+      // geändert hat.
+      (function() {
+          var getUploadsAsync = function() {
+              return $.ajax({
+                url: 'scripts/data/uploads.js',
+                dataType: 'text'
+              });
+          }
+
+          // Initial laden.
+          var original = ''; 
+          $.when(getUploadsAsync()).then(function(original) {  
+
+            // Änderungen in regelm. Anständen überprüfen.
+            setInterval(function() {
+                $.when(getUploadsAsync()).then(function(newdata) {
+                    if (newdata !== original) {
+                      original = newdata;
+                      eval(newdata); // Neue Uploads setzten.
+                      alert('Neue Bilder sind vorhanden!\nEinfach Seite neu laden und genießen.');
+                    }
+                });
+            }, 30000); // alle 30 Sekunden.
+
+          });
+      })();
 
 	</script>
     <!-- Asynchronous Google Analytics snippet. -->

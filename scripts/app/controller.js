@@ -161,16 +161,6 @@ $(function() {
       .live('mouseout', function() { $(this).animate({left: '+=10'}, 200); });
   })();
 
-  // Uploads.js periodisch nachladen, bzw. überprüfen, ob sich upload.js
-  // geändert hat.
-  setInterval(function () {
-    $.ajax({
-        url: 'scripts/data/uploads.js',
-        dataType: 'script', // Daten laden uns Script ausführen.
-        cache: true, // Wichtig, weil sonst dataType=script den Cache ausschaltet.
-        success: function(a,b,c){ }
-    })}, 60000);
-
 })
 
 
